@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_stream_chat_app/models/message_data.dart';
+import 'package:riverpod_stream_chat_app/domain/models/message_data.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/avatar.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/glowing_action_button.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/icon_buttons.dart';
 import 'package:riverpod_stream_chat_app/theme.dart';
-import 'package:riverpod_stream_chat_app/widgets/avatar.dart';
-import 'package:riverpod_stream_chat_app/widgets/glowing_action_button.dart';
-import 'package:riverpod_stream_chat_app/widgets/icon_buttons.dart';
 
 class ChatScreen extends StatelessWidget {
   static Route route(MessageData data) => MaterialPageRoute(

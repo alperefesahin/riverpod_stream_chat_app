@@ -1,15 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_stream_chat_app/pages/calls_page.dart';
-import 'package:riverpod_stream_chat_app/pages/contacts_page.dart';
-import 'package:riverpod_stream_chat_app/pages/messages_page.dart';
-import 'package:riverpod_stream_chat_app/pages/notifications_page.dart';
+import 'package:riverpod_stream_chat_app/helpers.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/calls_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/contacts_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/messages_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/notifications_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/avatar.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/glowing_action_button.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/icon_buttons.dart';
 import 'package:riverpod_stream_chat_app/theme.dart';
-import 'package:riverpod_stream_chat_app/widgets/avatar.dart';
-import 'package:riverpod_stream_chat_app/widgets/glowing_action_button.dart';
-import 'package:riverpod_stream_chat_app/widgets/icon_buttons.dart';
-
-import '../helpers.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);

@@ -1,13 +1,12 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:riverpod_stream_chat_app/models/message_data.dart';
-import 'package:riverpod_stream_chat_app/models/story_data.dart';
-import 'package:riverpod_stream_chat_app/screens/chat_screen.dart';
+import 'package:riverpod_stream_chat_app/domain/models/message_data.dart';
+import 'package:riverpod_stream_chat_app/domain/models/story_data.dart';
+import 'package:riverpod_stream_chat_app/helpers.dart';
+import 'package:riverpod_stream_chat_app/presentation/screens/chat_screen.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/avatar.dart';
 import 'package:riverpod_stream_chat_app/theme.dart';
-import 'package:riverpod_stream_chat_app/widgets/avatar.dart';
-
-import '../helpers.dart';
 
 class MessagesPage extends StatelessWidget {
   const MessagesPage({Key? key}) : super(key: key);

@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_stream_chat_app/screens/home_screen.dart';
-import 'package:riverpod_stream_chat_app/theme.dart';
+import 'package:riverpod_stream_chat_app/app.dart';
+import 'package:riverpod_stream_chat_app/presentation/core/app_widget.dart';
+import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 
-void main() => runApp(const MyApp());
+void main() {
+  final client = StreamChatClient(streamKey);
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
-      themeMode: ThemeMode.dark,
-      title: 'Riverpod Stream Chat App',
-      home: HomeScreen(),
-    );
-  }
+  runApp(AppWidget(client: client));
 }
