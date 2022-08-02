@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_stream_chat_app/presentation/screens/home_screen.dart';
+import 'package:riverpod_stream_chat_app/presentation/screens/screens.dart';
 import 'package:riverpod_stream_chat_app/theme.dart';
 import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 
@@ -15,11 +16,15 @@ class AppWidget extends StatelessWidget {
       darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.dark,
       title: 'Riverpod Stream Chat App',
-      home: HomeScreen(),
+      home: ProfileScreen(),
       builder: (context, child) {
         return StreamChatCore(
           client: client,
-          child: child!,
+          child: ChannelsBloc(
+            child: UsersBloc(
+              child: child!,
+            ),
+          ),
         );
       },
     );

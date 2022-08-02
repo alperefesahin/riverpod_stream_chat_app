@@ -5,7 +5,7 @@ import 'package:riverpod_stream_chat_app/presentation/screens/home_screen.dart';
 import 'package:riverpod_stream_chat_app/presentation/widgets/avatar.dart';
 import 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';
 
-import '../../../app.dart';
+import '../../infrastructure/core/app.dart';
 
 class SelectUserScreen extends StatefulWidget {
   static Route get route => MaterialPageRoute(
