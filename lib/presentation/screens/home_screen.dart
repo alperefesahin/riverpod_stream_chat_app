@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:riverpod_stream_chat_app/pages/calls_page.dart';
-import 'package:riverpod_stream_chat_app/pages/contacts_page.dart';
-import 'package:riverpod_stream_chat_app/pages/messages_page.dart';
-import 'package:riverpod_stream_chat_app/pages/notifications_page.dart';
+import 'package:riverpod_stream_chat_app/infrastructure/build_context_extensions.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/calls_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/contacts_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/messages_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/pages/notifications_page.dart';
+import 'package:riverpod_stream_chat_app/presentation/screens/profile_screen.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/avatar.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/glowing_action_button.dart';
+import 'package:riverpod_stream_chat_app/presentation/widgets/icon_buttons.dart';
 import 'package:riverpod_stream_chat_app/theme.dart';
-import 'package:riverpod_stream_chat_app/widgets/avatar.dart';
-import 'package:riverpod_stream_chat_app/widgets/glowing_action_button.dart';
-import 'package:riverpod_stream_chat_app/widgets/icon_buttons.dart';
-
-import '../helpers.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -50,7 +50,7 @@ class HomeScreen extends StatelessWidget {
               value,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 16,
+                fontSize: 17,
               ),
             );
           },
@@ -68,7 +68,15 @@ class HomeScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 24.0),
-            child: Avatar.small(url: Helpers.randomPictureUrl()),
+            child: Hero(
+              tag: 'hero-profile-picture',
+              child: Avatar.small(
+                url: context.currentUserImage,
+                onTap: () {
+                  Navigator.of(context).push(ProfileScreen.route);
+                },
+              ),
+            ),
           ),
         ],
       ),
@@ -142,7 +150,15 @@ class __BottomNavigationBarState extends State<_BottomNavigationBar> {
                   color: AppColors.secondary,
                   icon: CupertinoIcons.add,
                   onPressed: () {
-                    print('TODO on new message');
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) => const Dialog(
+                        child: AspectRatio(
+                          aspectRatio: 8 / 7,
+                          child: ContactsPage(),
+                        ),
+                      ),
+                    );
                   },
                 ),
               ),
@@ -198,7 +214,7 @@ class _NavigationBarItem extends StatelessWidget {
           children: [
             Icon(
               icon,
-              size: 20,
+              size: 22,
               color: isSelected ? AppColors.secondary : null,
             ),
             const SizedBox(
